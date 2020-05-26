@@ -3,7 +3,7 @@
     background-color: rgb(195, 139, 139);
 }
 .item {
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .item.active {
