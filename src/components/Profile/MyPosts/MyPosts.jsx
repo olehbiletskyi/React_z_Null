@@ -3,18 +3,27 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = () => {
+
+    let postData = [
+        {id: 1, message: 'Hey its my first post using PROPS', likeCounter: 101},
+        {id: 2, message: 'This is second post', likeCounter: 68} ,
+    ]
+
     return(
-        <div>
+        <div className={s.postsBlock}>
             
-            My posts
+            <h3>My posts</h3>
+            
             <div>
-                <textarea></textarea>
-                <button>Add post</button>
+                <div><textarea></textarea></div>
+                
+                <div><button>Add post</button></div>
+
             </div>
 
             <div className={s.posts}>
-                <Post message="Hey its my first post using PROPS" likeCounter = {6} />
-                <Post message="This is second post" likeCounter = {110} />
+                <Post message={postData[0].message} likeCounter = {postData[0].likeCounter} />
+                <Post message={postData[1].message} likeCounter = {postData[1].likeCounter} />
             </div>
 
         </div>

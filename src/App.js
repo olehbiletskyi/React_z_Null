@@ -18,18 +18,12 @@ const App = () => {
     <div className="app-wrapper">
         <Header/>
         <Navbar/>
-        {/* <News/> */}
-        {/* <Music/> */}
-        {/* <Settings/> */}
         <div className="app-wrapper-content">
             <Route path="/profile" component={Profile} />
             <Route path="/dialogs" component={Dialogs} />
             <Route path="/news" component={News} />
             <Route path="/music" component={Music} />
             <Route path="/settings" component={Settings} />
-
-            {/* <Dialogs/>
-            <Profile/> */}
         </div>
     </div>
     </BrowserRouter>
