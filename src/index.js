@@ -12,7 +12,6 @@ let dialogs = [
     {id: 5, name: 'Viktor'},
     {id: 6, name: 'Valera'}
 ]
-
 let messages = [
     {id: 1, message: 'Hi'},
     {id: 2, message: 'How are your React?'},
@@ -20,7 +19,6 @@ let messages = [
     {id: 4, message: 'Yo'},
     {id: 5, message: 'Yo'},
 ]
-
 let posts = [
     {id: 1, message: 'Hey its my first post using PROPS', likeCounter: 101},
     {id: 2, message: 'This is second post', likeCounter: 68} ,
@@ -29,7 +27,7 @@ let posts = [
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App  dialogs={dialogs}  messages={messages}  posts={posts} />
   </React.StrictMode>,
   document.getElementById('root')
 );
