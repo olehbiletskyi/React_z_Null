@@ -17,7 +17,7 @@ import FriendsItem from './FriendsItem/FriendsItem';
 const Friends = (props) => {
     let friendsElements = props.state.friends.map( 
     f => { 
-        return  <div/> {f.name}  <img src={f.avatar}/><div/>;
+        return ( f.name, <img src={f.avatar}/>) 
                
     } 
         );
