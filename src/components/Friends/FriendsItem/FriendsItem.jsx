@@ -1,15 +1,15 @@
-import React from 'react'
+// import React from 'react'
 
 
-const FriendsItem = (props) => {
-    return(
-        <div>
-            <div >
-                <img src={props.avatar} />
-                {props.name}
-            </div>
-        </div>
-    )
+// const FriendsItem = (props) => {
+//     return(
+//         <div>
+//             <div >
+//                 <img src={props.avatar} />
+//                 {props.name}
+//             </div>
+//         </div>
+//     )
 
-}
-export default FriendsItem;
+// }
+// export default FriendsItem;
