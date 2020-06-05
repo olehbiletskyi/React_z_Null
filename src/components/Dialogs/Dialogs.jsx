@@ -4,8 +4,8 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 
-const Dialogs = (props) => {
-    let dialogsElements = props.state.dialogs.map( 
+const Dialogs = ({ state }) => {
+    const dialogsElements = state.dialogs.map(
         d => <DialogItem avatar={d.avatar}  name={d.name}  id={d.id} /> );
 
     let messagesElements = props.state.messages.map( 
@@ -39,5 +39,4 @@ const Dialogs = (props) => {
     )
 }
 export default Dialogs;
-
 

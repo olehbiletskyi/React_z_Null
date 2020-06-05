@@ -11,24 +11,27 @@ import Settings from './components/Settings/Settings';
 import Friends from './components/Friends/Friends';
 
 
-const App = (props) => {
-  return (
-      <BrowserRouter>
-    <div className="app-wrapper">
-        <Header/>
-        <Navbar/>
-        
-        <div className="app-wrapper-content">
-            <Route path="/profile"  render={ () => <Profile state={props.state.profilePage} /> } />
-            <Route path="/dialogs"  render={ () => <Dialogs state={props.state.dialogsPage} /> } />
-            <Route path="/news"     render={ () => <News    /> } />
-            <Route path="/music"    render={ () => <Music   /> } />
-            <Route path="/settings" render={ () => <Settings/> } />
-            <Route path="/friends"  render={ () => <Friends  state={props.state.sidebarPage} /> } />
+const App = ({state}) => {
+    return (
+        <BrowserRouter>
+            <div className="app-wrapper">
+                <Header/>
+                <Navbar/>
 
-        </div>
-    </div>
-    </BrowserRouter>
-  );
+                <div className="app-wrapper-content">
+                    <Route path="/profile"
+                           render={() => <Profile state={state.profilePage}/>}/>
+                    <Route path="/dialogs"
+                           render={() => <Dialogs state={state.dialogsPage}/>}/>
+                    <Route path="/news" render={() => <News/>}/>
+                    <Route path="/music" render={() => <Music/>}/>
+                    <Route path="/settings" render={() => <Settings/>}/>
+                    <Route path="/friends"
+                           render={() => <Friends state={state.sidebarPage}/>}/>
+
+                </div>
+            </div>
+        </BrowserRouter>
+    );
 }
 export default App;
