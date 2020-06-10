@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./Friends.module.css";
-import FriendsItem from './FriendsItem';
+import FriendsItem from './FriendsItem/FriendsItem';
 
 const Friends = ({ state }) => {
     let friendsElements = state.friends.map(
