@@ -45,7 +45,8 @@ let state = {
     }
 }
 
-export let addPost = (postMessage) => {
+export const addPost = (postMessage) => {
+
     let newPost = {
         id : 5,
         message : postMessage,

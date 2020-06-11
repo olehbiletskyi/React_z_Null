@@ -3,13 +3,15 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
+    console.log("PROPS:::", props);
 
     let newPostElement = React.createRef();
 
-    // let addPost = () => {
-    //         let text = newPostElement.current.value;
-    //         alert(text);
-    // }
+    let addPost = () => {
+        debugger;
+            let text = newPostElement.current.value;
+            props.addPost(text);  
+    }
 
 
     let postsElements =
@@ -21,7 +23,7 @@ const MyPosts = (props) => {
 
             <div>
                 <div><textarea ref={newPostElement}></textarea></div>
-                <div><button onClick={ props.addPost }>Add post</button></div>
+                <div><button onClick={ addPost } >Add post</button></div> 
             </div>
 
             <div className={s.posts}>
