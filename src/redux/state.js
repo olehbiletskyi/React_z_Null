@@ -6,7 +6,8 @@ let state = {
         posts : [
             {id: 1, message: 'Hey its my first post using PROPS', likeCounter: 101},
             {id: 2, message: 'This is second post', likeCounter: 68} ,
-        ],
+                ],
+        newPostText: 'MY SITE',
     },
 
     dialogsPage: {
@@ -47,15 +48,27 @@ let state = {
     }
 }
 
-export const addPost = (postMessage) => {
+export const addPost = ( /*postMessage*/ ) => {
     let newPost = {
         id : 5,
-        message : postMessage,
+        // message : postMessage,
+        message : state.profilePage.newPostText,
         likesCount: 0
     };
     state.profilePage.posts.push(newPost);
+    
     rerenderEntireTree(state);
+    state.profilePage.posts = "";
 }
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+};
+
+
+
+
 
 
 
