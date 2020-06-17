@@ -12,7 +12,6 @@ const MyPosts = (props) => {
 
     let addPost = () => {
             props.addPost();
-            // newPostElement.current.value = ""; 
     }
 
     let onPostChange = () => {
@@ -24,20 +23,20 @@ const MyPosts = (props) => {
     return(
         <div className={s.postsBlock}>
 
-            <h3>My posts</h3>
+                <h3>My posts</h3>
 
-            <div>
                 <div>
-                    <textarea ref={newPostElement}   value={props.newPostText}   onChange={onPostChange}/>
+                    <div>
+                        <textarea ref={newPostElement}   value={props.newPostText}   onChange={onPostChange}/>
+                    </div>
+                    <div>
+                        <button onClick={ addPost } >Add post</button>
+                    </div> 
                 </div>
-                <div>
-                    <button onClick={ addPost } >Add post</button>
-                </div> 
-            </div>
 
-            <div className={s.posts}>
-                { postsElements }
-            </div>
+                <div className={s.posts}>
+                    { postsElements }
+                </div>
 
         </div>
     )
