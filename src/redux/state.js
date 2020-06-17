@@ -47,16 +47,38 @@ let store = {
             },
         },
 //методи
-    getState() {
-        return this._state;
-    },
-
-
     _callSubscriber ()  {
         console.log('state is changed');
     }, 
 
-    addPost ( ) {
+    getState() {
+        return this._state;
+    },
+    subscribe (observer)  {
+        this._callSubscriber = observer;
+    },
+
+
+    // addPost ( ) {
+    //     let newPost = {
+    //         id : 5,
+    //         message : this._state.profilePage.newPostText,
+    //         likesCount: 0
+    //     };
+    //     this._state.profilePage.posts.push(newPost);
+    //     this._state.profilePage.newPostText = "";
+    //     this._callSubscriber(this._state);
+    // },
+    
+    // updateNewPostText (newText)  {
+    //     this._state.profilePage.newPostText = newText;
+    //     this._callSubscriber(this._state);
+    // },
+
+
+dispatch (action) { //{ type: "ADD-POST"  }
+    if (action.type === "ADD-POST") 
+    {
         let newPost = {
             id : 5,
             message : this._state.profilePage.newPostText,
@@ -65,16 +87,17 @@ let store = {
         this._state.profilePage.posts.push(newPost);
         this._state.profilePage.newPostText = "";
         this._callSubscriber(this._state);
-    },
-    
-    updateNewPostText (newText)  {
-        this._state.profilePage.newPostText = newText;
+    }
+    else if (action.type === "UPDATE-NEW-POST-TEXT") 
+    {
+        this._state.profilePage.newPostText = action.newText;
         this._callSubscriber(this._state);
-    },
+    }
+}
+
+
+
     
-    subscribe (observer)  {
-        this._callSubscriber = observer;
-    },
 }
 
 export default store;
