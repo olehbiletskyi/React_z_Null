@@ -12,7 +12,7 @@ let store = {
             dialogsPage: {
                 dialogs : [
                     {id: 1, name: 'Dimych', 
-                    avatar: 'https://moemisto.ua/img/cache/event_content_photo/event/0002/48/e4983a6a9a3cd1ace55654731eba5a3a1eebb957.jpeg?hash=2017-12-13-12-54-06'},
+                    avatar: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Larus_californicus_Palo_Alto_May_2011_009.jpg'},
                     {id: 2, name: 'Anton', 
                     avatar: 'https://fs01.vseosvita.ua/01001wo3-a908/018.jpg'},
                     {id: 3, name: 'Sveta', 
@@ -38,7 +38,7 @@ let store = {
             sidebarPage: {
                 friends: [
                     {id: 1, name: 'Dimych', 
-                    avatar: 'https://moemisto.ua/img/cache/event_content_photo/event/0002/48/e4983a6a9a3cd1ace55654731eba5a3a1eebb957.jpeg?hash=2017-12-13-12-54-06'},
+                    avatar: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Larus_californicus_Palo_Alto_May_2011_009.jpg'},
                     {id: 2, name: 'Anton', 
                     avatar: 'https://fs01.vseosvita.ua/01001wo3-a908/018.jpg'},
                     {id: 3, name: 'Sveta', 

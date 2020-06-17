@@ -31,6 +31,7 @@ const App = (props) => {
                     <Route path="/settings" render={() => <Settings/>}/>
                     <Route path="/friends"  render={() => <Friends state={props.state.sidebarPage}/>}/>
                 </div>
+                
             </div>
         </BrowserRouter>
     );

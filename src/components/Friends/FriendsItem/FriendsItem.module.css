@@ -1,0 +1,18 @@
+.FriendsItem_name {
+    color: rgb(255, 212, 71);
+    font-size: 15px;
+    font-weight: 100;
+    font-style: normal;
+    font: 1em sans-serif;
+    margin-left: 30px;
+    margin-bottom: 70px;
+    letter-spacing: 5px;
+    line-height: 1px;
+}
+
+.FriendsItem_image {
+    width: 100px;
+    border-radius: 50%;
+    border:5px solid rgb(34, 158, 61)  ;
+    margin-left: 10px;
+}
