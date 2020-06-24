@@ -38,7 +38,7 @@ let store = {
                     {id: 4, message: 'Yo'},
                     {id: 5, message: 'Yo'},
                 ],
-                newMessageText: "",
+                newMessageText: "Hey, what is your skills in JS",
             },
             
             sidebarPage: {
@@ -88,7 +88,8 @@ let store = {
         else
 
         if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogPage.newMessageText = action.newText;
+        
+            this._state.dialogsPage.newMessageText = action.newText;
             this._callSubscriber(this._state);
         }
         else
