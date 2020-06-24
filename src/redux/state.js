@@ -1,14 +1,17 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
+const SEND_MESSAGE = 'SEND_MESSAGE';
+
 let store = {
-//поля
+//тут знаходиться весь наш _state
         _state: {
             profilePage: {
                 posts : [
                     {id: 1, message: 'Hey its my first post using PROPS', likeCounter: 101},
                     {id: 2, message: 'This is second post', likeCounter: 68} ,
                         ],
-                newPostText: 'This is my message',
+                newPostText: 'Write your message',
             },
 
             dialogsPage: {
@@ -35,6 +38,7 @@ let store = {
                     {id: 4, message: 'Yo'},
                     {id: 5, message: 'Yo'},
                 ],
+                newMessageText: "",
             },
             
             sidebarPage: {
@@ -48,74 +52,86 @@ let store = {
                     ],
             },
         },
-//методи
+//методи стора
+        //функція-утиліта викликає підписник
     _callSubscriber ()  {
         console.log('state is changed');
     }, 
-
+    //дає стейт
     getState() {
         return this._state;
     },
+    //функція переприсвоює викликаний підписник
     subscribe (observer)  {
         this._callSubscriber = observer;
     },
+/////////////////////////////////////////////////////////////
+    ///діспач-екшени
+    dispatch (action) { 
+       
+        if (action.type === UPDATE_NEW_POST_TEXT)  {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }
+        else 
+        
+        if (action.type === ADD_POST)  {
+            let newPost = {
+                id : 5,
+                message : this._state.profilePage.newPostText,
+                likesCount: 0
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = "";
+            this._callSubscriber(this._state);
+        }
+        else
 
+        if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.dialogPage.newMessageText = action.newText;
+            this._callSubscriber(this._state);
+        }
+        else
 
-    // addPost ( ) {
-    //     let newPost = {
-    //         id : 5,
-    //         message : this._state.profilePage.newPostText,
-    //         likesCount: 0
-    //     };
-    //     this._state.profilePage.posts.push(newPost);
-    //     this._state.profilePage.newPostText = "";
-    //     this._callSubscriber(this._state);
-    // },
-    
-    // updateNewPostText (newText)  {
-    //     this._state.profilePage.newPostText = newText;
-    //     this._callSubscriber(this._state);
-    // },
-
-
-dispatch (action) { 
-    if (action.type === ADD_POST) 
-    {
-        let newPost = {
-            id : 5,
-            message : this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = "";
-        this._callSubscriber(this._state);
+        if (action.type === SEND_MESSAGE) {
+            let newMessage = {
+                id: 5, 
+                message: this._state.dialogsPage.newMessageText,
+            };
+            this._state.dialogsPage.messages.push(newMessage);
+            this._state.dialogsPage.newMessageText = "";
+            this._callSubscriber(this._state);
+        }
     }
-    else 
-    
-    if (action.type === UPDATE_NEW_POST_TEXT) 
-    {
-        this._state.profilePage.newPostText = action.newText;
-        this._callSubscriber(this._state);
-    }
-}
+
 
 
 }
-
-export const addPostActionCreator = () => ({ type: ADD_POST })
-    
+//екшен-креатори
 export const updateNewPostTextActionCreator = (text) => {
     return {
         type: UPDATE_NEW_POST_TEXT,
         newText: text,
     }
+    }
+
+export const addPostActionCreator = () => ( { type: ADD_POST } )
+
+export const updateNewMessageTextActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_MESSAGE_TEXT,
+        newText: text,
+    }
 }
+
+export const sendMessageActionCreator = () => ( {type: SEND_MESSAGE} )
+
+
 
 
 
 
 
 export default store;
-
 
 window.store = store;

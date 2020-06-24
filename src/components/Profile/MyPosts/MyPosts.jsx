@@ -2,21 +2,7 @@ import React from 'react';
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
-//////////////////////////////////////////////////////////////////////////////
-// let addPostActionCreator = () => {
-//     return {
-//         type:"ADD-POST",
-//     }
-// }
-// let updateNewPostTextActionCreator = (text) => {
-//     return {
-//         type: "UPDATE-NEW-POST-TEXT",
-//         newText: text,
-//     }
-// }
 
-
-///////////////////////////////////////////////////////////////////////////////
 const MyPosts = (props) => {
 
     let postsElements = props.posts.map ( p => < Post message={p.message} likeCounter={p.likeCounter}  /> );
@@ -30,11 +16,21 @@ const MyPosts = (props) => {
     }
 
     let onPostChange = () => {
-        let text = newPostElement.current.value;
-        // props.updateNewPostText(text);
-        // props.dispatch( {type: "UPDATE-NEW-POST-TEXT", newText: text} );
-        props.dispatch( updateNewPostTextActionCreator(text) );
+            let text = newPostElement.current.value;
+            // props.updateNewPostText(text);
+            // props.dispatch( {type: "UPDATE-NEW-POST-TEXT", newText: text} );
+            props.dispatch( updateNewPostTextActionCreator(text) );
     }
+    let onFocus = () => {
+            // let text = newPostElement.current.value;
+            // text = "";
+            props.dispatch( updateNewPostTextActionCreator("") );
+    }
+//     let onFocusCapture = () => {
+//         let text = newPostElement.current.value;
+//         text = "5646464";
+//         props.dispatch( updateNewPostTextActionCreator(text) );
+// }
 
                                         //////////////////////////
     return(
@@ -44,7 +40,12 @@ const MyPosts = (props) => {
 
                 <div>
                     <div>
-                        <textarea ref={newPostElement}   value={props.newPostText}   onChange={onPostChange}/>
+                        <textarea 
+                                ref={newPostElement}   
+                                value={props.newPostText}
+                                onFocus={ onFocus }
+                                /* onFocusCapture={ onFocusCapture } */   
+                                onChange={onPostChange}/>
                     </div>
                     <div>
                         <button onClick={ addPost } >Add post</button>
