@@ -1,12 +1,7 @@
 import dialogsReducer from "./dialogs-reducer";
 import profileReducer from "./profile-reducer";
 import sidebarReducer from "./sidebar-reducer";
-/*
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT';
-const SEND_MESSAGE = 'SEND_MESSAGE';
-*/
+
 let store = {
 //тут знаходиться весь наш _state
         _state: {
@@ -57,6 +52,7 @@ let store = {
             },
         },
 //методи стора
+
         //функція-утиліта викликає підписник
     _callSubscriber ()  {
         console.log('state is changed');
@@ -80,7 +76,7 @@ let store = {
         this._callSubscriber(this._state);
     
     }
-}
+} 
 
 
 export default store;
