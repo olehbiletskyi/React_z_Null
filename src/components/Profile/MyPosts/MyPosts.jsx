@@ -1,7 +1,6 @@
 import React from 'react';
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profile-reducer";
 
 const MyPosts = (props) => {
 
@@ -10,29 +9,14 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     let addPost = () => {
-            // props.addPost();
-            // props.dispatch( {type:"ADD-POST"} )
-            props.dispatch( addPostActionCreator() );
-    }
+            props.addPost();
+        }
 
     let onPostChange = () => {
             let text = newPostElement.current.value;
-            // props.updateNewPostText(text);
-            // props.dispatch( {type: "UPDATE-NEW-POST-TEXT", newText: text} );
-            props.dispatch( updateNewPostTextActionCreator(text) );
+            props.updateNewPostText(text);
     }
-    let onFocus = () => {
-            // let text = newPostElement.current.value;
-            // text = "";
-            props.dispatch( updateNewPostTextActionCreator("") );
-    }
-//     let onFocusCapture = () => {
-//         let text = newPostElement.current.value;
-//         text = "5646464";
-//         props.dispatch( updateNewPostTextActionCreator(text) );
-// }
 
-                                        //////////////////////////
     return(
         <div className={s.postsBlock}>
 
@@ -41,11 +25,12 @@ const MyPosts = (props) => {
                 <div>
                     <div>
                         <textarea 
-                                ref={newPostElement}   
+                                ref={newPostElement}
                                 value={props.newPostText}
-                                onFocus={ onFocus }
-                                /* onFocusCapture={ onFocusCapture } */   
-                                onChange={onPostChange}/>
+                                onChange={ onPostChange }
+                                // onFocus={ onFocus }
+                                // onFocusCapture={ onFocusCapture }
+                        />
                     </div>
                     <div>
                         <button onClick={ addPost } >Add post</button>
