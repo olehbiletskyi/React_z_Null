@@ -7,12 +7,14 @@ import { BrowserRouter } from 'react-router-dom';
 //ініціалізуємо функцію "РЕРЕНДЕРИНГУ АПЛІКАЦІЇ ПОВНІСТЮ". Тобто вона малює всі наші компоненти.
 //їй ми передаємо параметр (СТАН-state)
 let rerenderEntireTree = (parameter) => {
+    
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
                             <App
                                     state={parameter}
                                     dispatch = {store.dispatch.bind(store)}
+                                    store = {store}
                             />
             </BrowserRouter>
         </React.StrictMode>,
